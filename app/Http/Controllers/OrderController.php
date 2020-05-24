@@ -13,16 +13,18 @@ class OrderController extends Controller
     }
 
     public function store(Request $request){
+        $data = $request->input('data');
+
         $order = Order::create([
-            'name' => $request->input('name'),
-            'contact_number' => $request->input('contact_number'),
-            'address' => $request->input('address'),
-            'subtotal' => (float) $request->input('subtotal'),
-            'shipping' => (float) $request->input('shipping'),
-            'total' => (float) $request->input('total'),
+            'name' => $data['name'],
+            'contact_number' => $data['contact_number'],
+            'address' => $data['address'],
+            'subtotal' => (float) $data['subtotal'],
+            'shipping' => (float) $data['shipping'],
+            'total' => (float) $data['total'],
         ]);
     
-        foreach ($request->input('items') as $item) {
+        foreach ($data['items'] as $item) {
             $order_item = Order_Item::create([
                 'quantity' => $item['quantity'],
                 'product_id' => $item['id'],
