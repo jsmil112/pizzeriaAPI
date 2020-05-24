@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Order;
+use App\Order_Item;
 use App\Product;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/products', 'ProductController@index');
+
+Route::get('/order/{order}', 'OrderController@show');
+
+Route::post('/order', 'OrderController@store'); 

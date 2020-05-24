@@ -12,6 +12,6 @@ class Product extends Model
     public function setDollarPriceAttribute($value)
     {
         $this->attributes['dollar_price'] = $value;
-        $this->attributes['euro_price'] = round($value * .91);
+        $this->attributes['euro_price'] = round($value * 10 * .91) / 10;
     }
 }
