@@ -32,28 +32,30 @@ class apiTest extends TestCase
     public function test_post_order()
     {
         $payload = [
-            "name" => "Jared",
-            "contact_number" => "51-2222-1231",
-            "address" => "123 house st",
-            "subtotal" => "123.45",
-            "shipping" => "5.00",
-            "total" => "128.45",
-            "items" => [[
-                "id" => 1,
-                "quantity" => 2,
-                "item_total" => "45.00"
-            ],
-            [
-                "id" => 3,
-                "quantity" => 1,
-                "item_total" => "12.00"
-            ],
-            [
-                "id" => 5,
-                "quantity" => 1,
-                "item_total" => "13.50"
-            ]]
-            ];
+            "data" =>[
+                "name" => "Jared",
+                "contact_number" => "51-2222-1231",
+                "address" => "123 house st",
+                "subtotal" => "123.45",
+                "shipping" => "5.00",
+                "total" => "128.45",
+                "items" => [[
+                    "id" => 1,
+                    "quantity" => 2,
+                    "item_total" => "45.00"
+                ],
+                [
+                    "id" => 3,
+                    "quantity" => 1,
+                    "item_total" => "12.00"
+                ],
+                [
+                    "id" => 5,
+                    "quantity" => 1,
+                    "item_total" => "13.50"
+                ]]
+            ]
+        ];
 
         $this->json('POST', 'api/order', $payload)
             ->assertStatus(200)
