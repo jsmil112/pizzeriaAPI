@@ -35,13 +35,13 @@ php artisan db:seed
 - POST "/order" - post new order.
   - Body Data - {"data": {
     							name: string,
-    							contact_number: string
-    							address: string
-    							subtotal: float
-    							shipping: float
-    							total: float
+    							contact_number: string,
+    							address: string,
+    							subtotal: float,
+    							shipping: float,
+    							total: float,
     							items: [{
-    								id: integer
+    								id: integer,
     								quantity: integer
     							}]
     					}}
